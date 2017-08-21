@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the bcl_layout feature.
+ */
+
+include_once 'bcl_layout.features.inc';
