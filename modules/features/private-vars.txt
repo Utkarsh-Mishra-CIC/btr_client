@@ -6,8 +6,8 @@ simplenews_from_address
 simplenews_test_address
 mass_contact_default_sender_email
 mass_contact_default_sender_name
-recaptcha_secret_key
 recaptcha_site_key
+recaptcha_secret_key
 googleanalytics_account
 cron_key
 date_default_timezone
@@ -33,6 +33,7 @@ date_format_long
 reroute_email_address
 reroute_email_enable
 reroute_email_enable_message
+oauth2_login_client_id
 oauth2_login_client_secret
 oauth2_login_enabled
 oauth2_login_oauth2_server

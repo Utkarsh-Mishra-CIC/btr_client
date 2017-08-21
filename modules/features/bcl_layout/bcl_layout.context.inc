@@ -70,12 +70,6 @@ function bcl_layout_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
-        'sharethis-sharethis_block' => array(
-          'module' => 'sharethis',
-          'delta' => 'sharethis_block',
-          'region' => 'content',
-          'weight' => '-9',
-        ),
         'disqus-disqus_comments' => array(
           'module' => 'disqus',
           'delta' => 'disqus_comments',
@@ -138,11 +132,29 @@ function bcl_layout_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
-        'aggregator-feed-1' => array(
-          'module' => 'aggregator',
-          'delta' => 'feed-1',
+        'btrProject-list' => array(
+          'module' => 'btrProject',
+          'delta' => 'list',
           'region' => 'sidebar_first',
-          'weight' => '-5',
+          'weight' => '-10',
+        ),
+        'btrVocabulary-list' => array(
+          'module' => 'btrVocabulary',
+          'delta' => 'list',
+          'region' => 'sidebar_first',
+          'weight' => '-9',
+        ),
+        'btrTranslations-statistics' => array(
+          'module' => 'btrTranslations',
+          'delta' => 'statistics',
+          'region' => 'sidebar_first',
+          'weight' => '-8',
+        ),
+        'btrTranslations-topcontrib' => array(
+          'module' => 'btrTranslations',
+          'delta' => 'topcontrib',
+          'region' => 'sidebar_first',
+          'weight' => '-7',
         ),
         'disqus-disqus_recent_comments' => array(
           'module' => 'disqus',
@@ -195,23 +207,11 @@ function bcl_layout_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
-        'sharethis-sharethis_block' => array(
-          'module' => 'sharethis',
-          'delta' => 'sharethis_block',
-          'region' => 'content',
-          'weight' => '-9',
-        ),
         'disqus-disqus_comments' => array(
           'module' => 'disqus',
           'delta' => 'disqus_comments',
           'region' => 'content',
           'weight' => '-8',
-        ),
-        'aggregator-feed-1' => array(
-          'module' => 'aggregator',
-          'delta' => 'feed-1',
-          'region' => 'sidebar_first',
-          'weight' => '-24',
         ),
         'disqus-disqus_recent_comments' => array(
           'module' => 'disqus',
@@ -268,6 +268,56 @@ function bcl_layout_context_default_contexts() {
   );
   $context->condition_mode = 0;
   $export['sitewide'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'translations';
+  $context->description = 'The pages where the translation/feedback activity is happening (module btrClient).';
+  $context->tag = '';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'translations/*' => 'translations/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'system-main' => array(
+          'module' => 'system',
+          'delta' => 'main',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+        'disqus-disqus_recent_comments' => array(
+          'module' => 'disqus',
+          'delta' => 'disqus_recent_comments',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
+        'disqus-disqus_popular_threads' => array(
+          'module' => 'disqus',
+          'delta' => 'disqus_popular_threads',
+          'region' => 'sidebar_second',
+          'weight' => '-9',
+        ),
+        'disqus-disqus_top_commenters' => array(
+          'module' => 'disqus',
+          'delta' => 'disqus_top_commenters',
+          'region' => 'sidebar_second',
+          'weight' => '-8',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('The pages where the translation/feedback activity is happening (module btrClient).');
+  $export['translations'] = $context;
 
   return $export;
 }

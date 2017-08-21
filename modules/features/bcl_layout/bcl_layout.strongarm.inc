@@ -182,7 +182,7 @@ function bcl_layout_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'jquery_update_jquery_version';
-  $strongarm->value = '1.8';
+  $strongarm->value = '1.10';
   $export['jquery_update_jquery_version'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -294,13 +294,6 @@ function bcl_layout_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'theme_default';
-  $strongarm->value = 'btr_client';
-  $export['theme_default'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'theme_btr_client_settings';
   $strongarm->value = array(
     'toggle_logo' => 1,
@@ -319,7 +312,7 @@ function bcl_layout_strongarm() {
     'favicon_path' => 'profiles/btr_client/modules/features/bcl_layout/favicon.png',
     'favicon_upload' => '',
     'general__active_tab' => 'edit-theme-settings',
-    'bootstrap__active_tab' => 'edit-components',
+    'bootstrap__active_tab' => 'edit-javascript',
     'bootstrap_breadcrumb' => '2',
     'bootstrap_breadcrumb_home' => 0,
     'bootstrap_breadcrumb_title' => 1,
@@ -346,9 +339,9 @@ function bcl_layout_strongarm() {
     'bootstrap_popover_placement' => 'auto',
     'bootstrap_popover_selector' => '',
     'bootstrap_popover_trigger' => array(
-      'focus' => 'focus',
-      'click' => 0,
+      'click' => 'click',
       'hover' => 0,
+      'focus' => 0,
       'manual' => 0,
     ),
     'bootstrap_popover_title' => '',
@@ -373,10 +366,16 @@ function bcl_layout_strongarm() {
     'bootstrap_bootswatch' => '',
     'bootstrap_rebuild_registry' => 0,
     'bootstrap_toggle_jquery_error' => 0,
-    'jquery_update_jquery_version' => '2.1',
     'favicon_mimetype' => 'image/png',
   );
   $export['theme_btr_client_settings'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'theme_default';
+  $strongarm->value = 'btr_client';
+  $export['theme_default'] = $strongarm;
 
   return $export;
 }
