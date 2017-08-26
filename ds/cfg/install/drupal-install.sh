@@ -72,9 +72,3 @@ drush dl drush_language
 if [[ "$TRANSLATION_LNG" != 'all' ]]; then
     $drush language-add $TRANSLATION_LNG
 fi
-
-### refresh and update translations
-if [[ -z $DEV ]]; then
-    $drush --yes l10n-update-refresh
-    $drush --yes l10n-update
-fi

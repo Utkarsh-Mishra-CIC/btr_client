@@ -28,6 +28,7 @@ cmd_config() {
     fi
 
     ds runcfg set-oauth2-login
+    ds runcfg set-translation-lng
 
     # drush may create some files with wrong permissions, fix them
     ds runcfg fix-file-permissions

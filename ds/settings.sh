@@ -8,6 +8,7 @@ SSHD_PORT=2201
 PORTS=""    ## no ports to be forwarded when running behind wsproxy
 
 DOMAIN="bcl.example.org"
+DOMAINS="dev.bcl.example.org tst.bcl.example.org"  # other domains
 
 ### Gmail account for notifications.
 ### Make sure to enable less-secure-apps:
@@ -27,4 +28,4 @@ OAUTH2_CLIENT_ID='client1'
 OAUTH2_CLIENT_SECRET='0123456789'
 
 ### Uncomment if this installation is for development.
-#DEV=true
+DEV=true

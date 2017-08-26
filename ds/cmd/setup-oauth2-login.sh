@@ -26,6 +26,12 @@ cmd_setup-oauth2-login() {
     # setup oauth2 login on btr_client
     ds runcfg set-oauth2-login @bcl $server_url $client_key $client_secret
 
+    # fix cache
+    ds exec drush @bcl cc all
+    ds $btr_server exec drush @btr cc all
+    ds exec chown www-data: -R /var/www/bcl/cache
+    ds $btr_server exec chown www-data: -R /var/www/btr/cache
+
     if [[ -n $DEV ]]; then
         # get variables
         client_url=$(ds exec drush @bcl_dev php-eval 'print $GLOBALS["base_url"]')
@@ -40,5 +46,11 @@ cmd_setup-oauth2-login() {
         ds $btr_server exec drush --yes @btr_dev vset btr_client $client_url
         # setup oauth2 login on btr_client
         ds runcfg set-oauth2-login @bcl_dev $server_url $client_key $client_secret
+
+        # fix cache
+        ds exec drush @bcl_dev cc all
+        ds $btr_server exec drush @btr_dev cc all
+        ds exec chown www-data: -R /var/www/bcl_dev/cache
+        ds $btr_server exec chown www-data: -R /var/www/btr_dev/cache
     fi
 }
