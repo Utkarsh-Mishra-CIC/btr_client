@@ -29,11 +29,11 @@ For more detailed information see: http://info.btranslator.org
     git clone https://github.com/B-Translator/btr_client /opt/docker-scripts/btr_client
     ```
 
-  - Create a directory for the container: `ds init btr_client/ds @l10n-org-al`
+  - Create a directory for the container: `ds init btr_client/ds @bcl-example-org`
 
   - Fix the settings:
     ```
-    cd /var/ds/l10n-org-al/
+    cd /var/ds/bcl-example-org/
     vim settings.sh
     ```
 
@@ -51,8 +51,8 @@ For more detailed information see: http://info.btranslator.org
     ```
 
   - If installation is not on a public server, add to `/etc/hosts` the
-    line `127.0.0.1 l10n.org.al` and then try in browser:
-    https://l10n.org.al
+    line `127.0.0.1 bcl.example.org` and then try in browser:
+    https://bcl.example.org
 
 
 ## Other commands
@@ -64,9 +64,13 @@ For more detailed information see: http://info.btranslator.org
     ds start
     ds snapshot
 
+    ds setup-oauth2-login @<btr-server>
+
+    ds runcfg set-oauth2-login [<@alias> <server-url> <client-key> <client-secret>]
+    ds runcfg set-emailsmtp <gmail-user> <gmail-passwd>
     ds runcfg set-adminpass <new-drupal-admin-passwd>
     ds runcfg set-domain <new.domain>
-    ds runcfg emailsmtp <gmail-user> <gmail-passwd>
+    ds runcfg set-translation-lng
 
     ds runcfg dev/clone proj proj_test
     ds runcfg dev/clone_rm proj_test
