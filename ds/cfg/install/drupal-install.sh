@@ -9,7 +9,7 @@ db_pass=bcl
 site_name="B-Translator"
 site_mail="$GMAIL_ADDRESS"
 account_name=admin
-account_pass="$BCL_ADMIN_PASS"
+account_pass="$ADMIN_PASS"
 account_mail="$GMAIL_ADDRESS"
 
 ### create the database and user
@@ -28,44 +28,45 @@ drush site-install --verbose --yes btr_client \
       --site-name="$site_name" --site-mail="$site_mail" \
       --account-name="$account_name" --account-pass="$account_pass" --account-mail="$account_mail"
 
-drush="drush --root=$DRUPAL_DIR"
+### install additional features
+drush="drush --root=$DRUPAL_DIR --yes"
 
 ### install btrProject and btrVocabulary
-$drush --yes pm-enable btrProject
-$drush --yes pm-enable btrVocabulary
+$drush pm-enable btrProject
+$drush pm-enable btrVocabulary
 
 ### install additional features
-$drush --yes pm-enable bcl_btrClient
-$drush --yes features-revert bcl_btrClient
+$drush pm-enable bcl_btrClient
+$drush features-revert bcl_btrClient
 
-$drush --yes pm-enable bcl_misc
-$drush --yes features-revert bcl_misc
+$drush pm-enable bcl_misc
+$drush features-revert bcl_misc
 
-$drush --yes pm-enable bcl_layout
-$drush --yes features-revert bcl_layout
+$drush pm-enable bcl_layout
+$drush features-revert bcl_layout
 
-$drush --yes pm-enable bcl_content
+$drush pm-enable bcl_content
 
-$drush --yes pm-enable bcl_permissions
-$drush --yes features-revert bcl_permissions
+$drush pm-enable bcl_permissions
+$drush features-revert bcl_permissions
 
-#$drush --yes pm-enable bcl_captcha
-#$drush --yes features-revert bcl_captcha
+#$drush pm-enable bcl_captcha
+#$drush features-revert bcl_captcha
 
-#$drush --yes pm-enable bcl_discus
-#$drush --yes features-revert bcl_discus
-#$drush --yes pm-enable bcl_invite
-#$drush --yes pm-enable bcl_simplenews
-#$drush --yes pm-enable bcl_mass_contact
-#$drush --yes pm-enable bcl_googleanalytics
-#$drush --yes pm-enable bcl_drupalchat
+#$drush pm-enable bcl_discus
+#$drush features-revert bcl_discus
+#$drush pm-enable bcl_invite
+#$drush pm-enable bcl_simplenews
+#$drush pm-enable bcl_mass_contact
+#$drush pm-enable bcl_googleanalytics
+#$drush pm-enable bcl_drupalchat
 
 ### update to the latest version of core and modules
-#$drush --yes pm-refresh
-#$drush --yes pm-update
+#$drush pm-refresh
+#$drush pm-update
 
 ### set drupal variable btrClient_translation_lng
-$drush --yes --exact vset btrClient_translation_lng $TRANSLATION_LNG
+$drush --exact vset btrClient_translation_lng $TRANSLATION_LNG
 
 ### add $TRANSLATION_LNG as a drupal language
 drush dl drush_language
