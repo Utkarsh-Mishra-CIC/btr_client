@@ -39,6 +39,9 @@ cd $DRUPAL_DIR/profiles/btr_client/libraries/
 cp hybridauth-drupaloauth2/DrupalOAuth2.php \
    hybridauth/hybridauth/Hybrid/Providers/
 
+### copy the logo file to the drupal dir
+ln -s $DRUPAL_DIR/profiles/btr_client/btr_client.png $DRUPAL_DIR/logo.png
+
 ### get a clone of btrclient from github
 if [[ -n $DEV ]]; then
     cd $DRUPAL_DIR/profiles/btr_client/modules/contrib/btrclient
