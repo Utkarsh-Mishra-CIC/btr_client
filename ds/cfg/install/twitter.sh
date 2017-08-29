@@ -4,7 +4,7 @@ source /host/settings.sh
 
 # setup cron
 cat <<EOF > /etc/cron.d/twitter
-### first create a user with `adduser twitter`
+### the script is called as the user 'twitter'
 0 4 * * *  twitter  $DRUPAL_DIR/profiles/btr_client/utils/twitter.sh > /dev/null 2>&1
 
 ### uncomment this line only for debugging
