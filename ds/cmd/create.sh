@@ -15,7 +15,8 @@ cmd_create() {
         --mount type=bind,src=$(pwd)/var-www,dst=/var/www \
         --workdir /var/www \
         --env CODE_DIR=/usr/local/src/btr_client \
-        --env DRUPAL_DIR=/var/www/bcl
+        --env DRUPAL_DIR=/var/www/bcl \
+        "$@"    # accept additional options, e.g.: -p 2201:22
 
     rm -f btr_client
     ln -s var-www/bcl/profiles/btr_client .
