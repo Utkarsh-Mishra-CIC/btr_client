@@ -2,9 +2,6 @@
 
 source /host/settings.sh
 
-### expose the logo file on the drupal dir
-ln -s $DRUPAL_DIR/profiles/btr_client/btr_client.png $DRUPAL_DIR/logo.png
-
 ### put the cache on RAM (to improve efficiency)
 sed -i /etc/fstab \
     -e '/appended by installation scripts/,$ d'
