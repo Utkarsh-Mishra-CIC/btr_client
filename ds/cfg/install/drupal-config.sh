@@ -44,7 +44,7 @@ EOF
 ### prevent robots from crawling translations
 sed -i $DRUPAL_DIR/robots.txt \
     -e '/# B-Translator/,$ d'
-cat <<EOF >> $drupal_dir/robots.txt
+cat <<EOF >> $DRUPAL_DIR/robots.txt
 # B-Translator
 Disallow: /btr/
 Disallow: /?q=btr/
