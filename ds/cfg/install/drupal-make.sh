@@ -3,7 +3,7 @@
 source /host/settings.sh
 
 ### make sure that we have the right git branch on the make file
-makefile="$CODE_DIR/build-btr_client.make"
+makefile="$CODE_DIR/build-btrclient.make"
 git_branch=$(git -C $CODE_DIR branch | cut -d' ' -f2)
 sed -i $makefile \
     -e "/btr_client..download..branch/ c projects[btr_client][download][branch] = $git_branch"
