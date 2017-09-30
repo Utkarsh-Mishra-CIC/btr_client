@@ -20,11 +20,11 @@ cmd_setup-oauth2-login() {
     local client_secret=$(mcookie)
 
     # register an oauth2 client on btr_server
-    ds $btr_server runcfg oauth2-client-add @btr $client_key $client_secret $redirect_uri
+    ds $btr_server inject oauth2-client-add.sh @btr $client_key $client_secret $redirect_uri
     # set the variable btr_client of the server
     ds $btr_server exec drush --yes @btr vset btr_client $client_url
     # setup oauth2 login on btr_client
-    ds runcfg set-oauth2-login @bcl $server_url $client_key $client_secret
+    ds inject set-oauth2-login.sh @bcl $server_url $client_key $client_secret
 
     # fix cache
     ds exec drush @bcl cc all
@@ -41,11 +41,11 @@ cmd_setup-oauth2-login() {
         client_secret=$(mcookie)
 
         # register an oauth2 client on btr_server
-        ds $btr_server runcfg oauth2-client-add @btr_dev $client_key $client_secret $redirect_uri
+        ds $btr_server inject oauth2-client-add.sh @btr_dev $client_key $client_secret $redirect_uri
         # set the variable btr_client of the server
         ds $btr_server exec drush --yes @btr_dev vset btr_client $client_url
         # setup oauth2 login on btr_client
-        ds runcfg set-oauth2-login @bcl_dev $server_url $client_key $client_secret
+        ds inject set-oauth2-login.sh @bcl_dev $server_url $client_key $client_secret
 
         # fix cache
         ds exec drush @bcl_dev cc all
