@@ -11,6 +11,13 @@ DEV=true
 ### Other domains.
 [[ -n $DEV ]] && DOMAINS="dev.bcl.example.org tst.bcl.example.org"
 
+### DB settings
+DBHOST=mariadb
+DBPORT=3306
+DBNAME=bcl
+DBUSER=bcl
+DBPASS=bcl
+
 ### Gmail account for notifications.
 ### Make sure to enable less-secure-apps:
 ### https://support.google.com/accounts/answer/6010255?hl=en

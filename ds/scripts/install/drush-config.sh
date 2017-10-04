@@ -18,7 +18,7 @@ cat <<EOF > /etc/drush/local_bcl.aliases.drushrc.php
 
 \$aliases['bcl'] = array (
   'root' => '/var/www/bcl',
-  'uri' => 'http://$DOMAIN',
+  'uri' => 'https://$DOMAIN',
   'path-aliases' => array (
     '%profile' => 'profiles/btr_client',
     '%downloads' => '/var/www/downloads',
@@ -28,7 +28,7 @@ cat <<EOF > /etc/drush/local_bcl.aliases.drushrc.php
 // \$aliases['bcl_dev'] = array (
 //   'parent' => '@bcl',
 //   'root' => '/var/www/bcl_dev',
-//   'uri' => 'http://dev.$DOMAIN',
+//   'uri' => 'https://dev.$DOMAIN',
 // );
 EOF
 

@@ -21,4 +21,7 @@ cmd_create() {
 
     rm -f btr_client
     ln -s var-www/bcl/profiles/btr_client .
+
+    # create the database
+    ds mariadb create
 }
