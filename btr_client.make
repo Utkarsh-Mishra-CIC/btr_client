@@ -39,6 +39,7 @@ projects[entity] = 1.8
 projects[xautoload] = 5.7
 projects[token] = 1.7
 projects[rules] = 2.10
+projects[rules][patch][2923477] = https://www.drupal.org/files/issues/php7_2_compatibility-2923477-5.patch
 projects[pathauto] = 1.3
 projects[subpathauto] = 1.3
 
